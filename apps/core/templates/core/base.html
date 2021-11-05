@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Title -->
+        <title>Job Boarding</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar is-light">
+            <div class="navbar-brand">
+                <a href="{% url 'frontpage' %}" class="navbar-item">  <i class="fas fa-clipboard-list"> </i> &nbsp; <strong>Job Boarding</strong></a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="{% url 'search' %}" class="navbar-item"> <i class="fas fa-search"></i><Strong> &nbsp;Search </Strong></a>
+
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'dashboard' %}" class="navbar-item"> <i class="fas fa-tachometer-alt"></i>&nbsp; Dashboard</a>
+                        <a href="{% url 'notifications' %}" class="navbar-item"> <i class="fas fa-bell"></i>Notifications ({{ notifications.count }})</a>    
+                    {% endif %}
+
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'logout' %}" class="button is-danger">Log out &nbsp; <i class="fas fa-arrow-alt-circle-left"></i> </a>
+                            {% else %}
+                                <a href="{% url 'signup' %}" class="button is-success"> <i class="fas fa-user-plus"></i><strong>&nbsp;Sign up</strong></a>
+                                <a href="{% url 'login' %}" class="button is-light"> <i class="fas fa-sign-in-alt"></i>&nbsp;Log in</a>    
+                            {% endif %}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <!-- Main content -->
+        <section class="section">
+            {% block content %}
+            {% endblock %}
+        </section>
+        <!-- End Main content -->
+
+        <!-- Scripts -->
+        <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
