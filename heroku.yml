@@ -1,0 +1,9 @@
+setup:
+  addons:
+  - plan: heroku-postgresql
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: python /code/manage.py runserver 0.0.0.0:$PORT
+  
