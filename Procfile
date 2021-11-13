@@ -1,2 +1,2 @@
-Web:gunicorn codingjobs.wsgi
+web: gunicorn codingjobs.wsgi
 
