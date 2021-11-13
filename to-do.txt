@@ -1,0 +1,6 @@
+Docker command:
+docker build --tag jobs .
+docker run --publish 8001:8000 jobs
+
+
+
