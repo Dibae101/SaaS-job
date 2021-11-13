@@ -25,7 +25,7 @@ SECRET_KEY = '+16a2x$b1$h1wv2tw#lcy-%wwvf*7b$j%vy-(-$qoc@gp@l7r6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'https://rwm-saasjobs.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'frontpage'
@@ -83,11 +83,14 @@ WSGI_APPLICATION = 'codingjobs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dd2vgr4v46ni8l',
+        'HOST': 'ec2-44-198-236-169.compute-1.amazonaws.com',
+        'PORT': 5432, 
+        'USER': 'wjbkhanovblcer',
+        'PASSWORD': 'd55c0d02e1e5526294db9582a244a129e5852cc42478554e2773f2577377b1e2', 
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
