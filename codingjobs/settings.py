@@ -25,7 +25,7 @@ SECRET_KEY = '+16a2x$b1$h1wv2tw#lcy-%wwvf*7b$j%vy-(-$qoc@gp@l7r6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://rwm-saasjobs.herokuapp.com/']
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'frontpage'
@@ -126,5 +126,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
